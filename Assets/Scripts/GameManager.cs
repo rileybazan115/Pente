@@ -31,7 +31,7 @@ public class GameManager : Singleton<GameManager>
     int turnCount = 0;
     int p1CapturedPieces = 0;
     int p2CapturedPieces = 0;
-
+        
     void Start()
     {
         //Debug.Log(WinChecker(bord).ToString());
@@ -140,5 +140,97 @@ public class GameManager : Singleton<GameManager>
         }
 
         return capturedPieces;
+    }
+
+    public bool TesseraChecker(List<List<int>> board)
+    {
+        int activePlayer = (turnCount % 2) + 1;
+
+        //horizontal check
+        for (int i = 0; i < 19; i++)
+        {
+            for (int j = 0; j < 16; j++)
+            {
+                if (activePlayer == board[i][j] && activePlayer == board[i][j + 1] && activePlayer == board[i][j + 2] && activePlayer == board[i][j + 3]) return true;
+            }
+        }
+
+        //vertical check
+        for (int i = 0; i < 16; i++)
+        {
+            for (int j = 0; j < 19; j++)
+            {
+                if (activePlayer == board[i][j] && activePlayer == board[i + 1][j] && activePlayer == board[i + 2][j] && activePlayer == board[i + 3][j]) return true;
+            }
+        }
+
+        //bottom left to upper right diag check
+        for (int i = 3; i < 19; i++)
+        {
+            for (int j = 0; j < 16; j++)
+            {
+                if (activePlayer == board[i][j] && activePlayer == board[i - 1][j + 1] && activePlayer == board[i - 2][j + 2] && activePlayer == board[i - 3][j + 3]) return true;
+            }
+        }
+
+        //upper left to bottom right diag check
+        for (int i = 0; i < 16; i++)
+        {
+            for (int j = 0; j < 16; j++)
+            {
+                if (activePlayer == board[i][j] && activePlayer == board[i + 1][j + 1] && activePlayer == board[i + 2][j + 2] && activePlayer == board[i + 3][j + 3]) return true;
+            }
+        }
+
+        if (p1CapturedPieces >= 10 || p2CapturedPieces >= 10) return true;
+
+
+        return false;
+    }
+
+    public bool TriaChecker(List<List<int>> board)
+    {
+        int activePlayer = (turnCount % 2) + 1;
+
+        //horizontal check
+        for (int i = 0; i < 19; i++)
+        {
+            for (int j = 0; j < 17; j++)
+            {
+                if (activePlayer == board[i][j] && activePlayer == board[i][j + 1] && activePlayer == board[i][j + 2]) return true;
+            }
+        }
+
+        //vertical check
+        for (int i = 0; i < 17; i++)
+        {
+            for (int j = 0; j < 19; j++)
+            {
+                if (activePlayer == board[i][j] && activePlayer == board[i + 1][j] && activePlayer == board[i + 2][j]) return true;
+            }
+        }
+
+        //bottom left to upper right diag check
+        for (int i = 2; i < 19; i++)
+        {
+            for (int j = 0; j < 17; j++)
+            {
+                if (activePlayer == board[i][j] && activePlayer == board[i - 1][j + 1] && activePlayer == board[i - 2][j + 2]) return true;
+            }
+        }
+
+        //upper left to bottom right diag check
+        for (int i = 0; i < 17; i++)
+        {
+            for (int j = 0; j < 17; j++)
+            {
+                if (activePlayer == board[i][j] && activePlayer == board[i + 1][j + 1] && activePlayer == board[i + 2][j + 2]) return true;
+            }
+        }
+
+        if (p1CapturedPieces >= 10 || p2CapturedPieces >= 10) return true;
+
+
+        return false;
     }
 }
