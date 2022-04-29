@@ -31,6 +31,37 @@ public class GameManager : Singleton<GameManager>
     int turnCount = 0;
     int p1CapturedPieces = 0;
     int p2CapturedPieces = 0;
+    float timer = 35;
+
+    public void Update()
+    {
+        if (turnCount % 2 == 0)
+        {
+
+        }
+        else
+        {
+
+        }
+
+        if(timer <= 5)
+        {
+            //Warning
+        }
+        if(timer <= 0)
+        {
+            timer = 30;
+            //switch player turn
+        }
+        timer -= Time.deltaTime;
+    }
+
+    public void PlacePiece()
+    {
+        //Place Piece code here
+
+        turnCount++;
+    }
 
     void Start()
     {
