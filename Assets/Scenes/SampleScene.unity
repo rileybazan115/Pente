@@ -555,8 +555,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 938965205}
-  whitePeace: {fileID: 0}
-  blackPeace: {fileID: 0}
+  whitePeace: {fileID: 21300000, guid: a82c6257a20ce2d41990f38e212086d4, type: 3}
+  blackPeace: {fileID: 21300000, guid: c080b92d1a469154f8f4b82025f5b8df, type: 3}
 --- !u!1001 &1941047279
 PrefabInstance:
   m_ObjectHideFlags: 0

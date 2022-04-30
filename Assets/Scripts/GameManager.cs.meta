@@ -1,10 +1,18 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 1afed233c84e54a47b94b99351f8c870
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
   - board: {instanceID: 0}
+=======
+guid: deb39fe95a4b2aa4a8b90d3dd91de6b2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+>>>>>>> origin/Logic
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
